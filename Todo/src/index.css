@@ -14,6 +14,34 @@
   -webkit-text-size-adjust: 100%;
 }
 
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 8.5% 62.3% 29.2%;
+  grid-template-rows: 7.5% 36.6% 55.9%;
+  gap: 100px 250px;
+  grid-template-areas:
+    "Account Account Account"
+    "NavBar Timer-Area FinishedTasks"
+    "NavBar To-Do-List Notes";
+}
+
+
+.NavBar { grid-area: NavBar; }
+
+.Timer-Area { grid-area: Timer-Area; }
+
+.To-Do-List { grid-area: To-Do-List; }
+
+.FinishedTasks { grid-area: FinishedTasks; }
+
+.Notes { grid-area: Notes; }
+
+.Account { grid-area: Account; }
+
+
+
 a {
   font-weight: 500;
   color: #646cff;

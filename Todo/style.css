@@ -1,0 +1,25 @@
+
+.container {  display: grid;
+  grid-template-columns: 0.3fr 2.1fr 0.8fr;
+  grid-template-rows: 0.2fr 1.2fr 1.6fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "Account Account Account"
+    "NavBar Timer-Area FinishedTasks"
+    "NavBar To-Do-List Notes";
+}
+
+.NavBar { grid-area: NavBar; }
+
+.Timer-Area { grid-area: Timer-Area; }
+
+.To-Do-List { grid-area: To-Do-List; }
+
+.FinishedTasks { grid-area: FinishedTasks; }
+
+.Notes { grid-area: Notes; }
+
+.Account { grid-area: Account; }
+
+
