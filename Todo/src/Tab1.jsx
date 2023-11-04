@@ -3,6 +3,7 @@ import './Tab.css'
 import { DiAptana } from "react-icons/di";
 import { BiAddToQueue } from "react-icons/bi";
 import { BiSquareRounded } from "react-icons/bi";
+import { AiOutlineCalendar } from "react-icons/ai";
 
 const Tab = () => {
 
@@ -17,6 +18,11 @@ const Tab = () => {
         </li>
         <li>
           <a href="link2">
+            <AiOutlineCalendar size={40} color="white" />
+          </a>
+        </li>
+        <li>
+          <a href="link3">
             <BiAddToQueue size={40} color="white" />
           </a>
         </li>
