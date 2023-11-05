@@ -13,22 +13,22 @@ const Tab = () => {
       <ul className='centered-list' style={{ listStyleType: 'none' }} >
       <li>
           <a href="link1">
-            <BiSquareRounded size={40} color="white" />
+            <BiSquareRounded size={55} color="white" />
           </a>
         </li>
         <li>
           <a href="link2">
-            <AiOutlineCalendar size={40} color="white" />
+            <AiOutlineCalendar size={55} color="white" />
           </a>
         </li>
         <li>
           <a href="link3">
-            <BiAddToQueue size={40} color="white" />
+            <BiAddToQueue size={55} color="white" />
           </a>
         </li>
         <li>
           <a href="./settings.html">
-            <DiAptana size={40} color="white" />
+            <DiAptana size={55} color="white" />
           </a>
         </li>
       </ul>

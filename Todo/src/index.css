@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-image: url("assets/51557732.png");
+  background-image: url("assets/3d-rendering-dog-toy.jpg");
   background-size: cover; /* or contain, or specific dimensions */
   background-repeat: no-repeat; /* or repeat, repeat-x, repeat-y */
   background-position: center center; /* or specific position */
@@ -45,7 +45,7 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
-  bottom: 25%;
+  bottom: 15%;
 
 }
 .content2{
@@ -75,8 +75,6 @@ body {
   text-indent: 10%; /* Set the text indent to 7% */
   font-size: 30px;
 }
-
-
 
 
 

@@ -2,7 +2,7 @@
 .box{
     border-radius: 10px;
     height: auto;
-    width: 80px;
+    width: 110px;
     text-align: center;
     /* From https://css.glass */
 background: rgba(0, 0, 0, 0.603);
@@ -20,8 +20,8 @@ border: 1px solid rgba(0, 0, 0, 0.34);
   }
   
   .centered-list li {
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 60px;
+    padding-bottom: 60px;
     text-align: center; /* Center list items horizontally */
   }
 
