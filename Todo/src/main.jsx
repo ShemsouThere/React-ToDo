@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App.jsx';
+import TodoList from './App.jsx';
 import Tab from './Tab1.jsx'; // Correct the file name
 import { Box, Box2, Box3 } from './Box.jsx'; // Correct the file name
 import PomodoroTimer from './pomodorotimer.jsx';
@@ -28,7 +28,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           </div>
 
           <div className="content4 centered">
-          <App /> 
+          <TodoList /> 
           </div>
           <div className="content5 centered">
              content 5

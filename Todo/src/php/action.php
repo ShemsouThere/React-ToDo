@@ -2,10 +2,9 @@
 
 // Establish a database connection
 $servername = "localhost";
-$username = "host";
+$username = "root";
 $password = "";
 $dbname = "todo";
-
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($conn->connect_error) {

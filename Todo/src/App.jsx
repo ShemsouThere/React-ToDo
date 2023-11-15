@@ -12,7 +12,7 @@ const TodoList = () => {
 
   const fetchTodos = async () => {
     try {
-      const response = await fetch('http://your-php-server/api/todos.php');
+      const response = await fetch('http://localhost/php/todos.php');
       const data = await response.json();
       setTodos(data);
     } catch (error) {
@@ -23,7 +23,7 @@ const TodoList = () => {
   const handleAddTodo = async () => {
     if (newTodo.trim() !== "") {
       try {
-        const response = await fetch('http://your-php-server/api/addTodo.php', {
+        const response = await fetch('http://localhost/php/addTodo.php', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -47,7 +47,7 @@ const TodoList = () => {
 
   const handleDeleteTodo = async (index) => {
     try {
-      const response = await fetch(`http://your-php-server/api/deleteTodo.php?id=${todos[index].id}`, {
+      const response = await fetch(`http://localhost/php/deleteTodo.php?id=${todos[index].id}`, {
         method: 'DELETE',
       });
 
@@ -64,7 +64,7 @@ const TodoList = () => {
 
   const handleToggleTodo = async (index) => {
     try {
-      const response = await fetch(`http://your-php-server/api/updateTodo.php?id=${todos[index].id}`, {
+      const response = await fetch(`http://localhost/php/updateTodo.php?id=${todos[index].id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
