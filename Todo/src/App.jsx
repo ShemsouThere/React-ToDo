@@ -1,31 +1,89 @@
-import { useState } from 'react'
-import './App.css'
+import { useState, useEffect } from 'react';
+import './App.css';
 
 const TodoList = () => {
   const [todos, setTodos] = useState([]);
   const [newTodo, setNewTodo] = useState("");
 
-  const handleAddTodo = () => {
+  useEffect(() => {
+    // Fetch todos from the server when the component mounts
+    fetchTodos();
+  }, []);
+
+  const fetchTodos = async () => {
+    try {
+      const response = await fetch('http://your-php-server/api/todos.php');
+      const data = await response.json();
+      setTodos(data);
+    } catch (error) {
+      console.error('Error fetching todos:', error);
+    }
+  };
+
+  const handleAddTodo = async () => {
     if (newTodo.trim() !== "") {
-      setTodos([...todos, { text: newTodo.trim(), checked: false }]);
+      try {
+        const response = await fetch('http://your-php-server/api/addTodo.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ text: newTodo.trim(), checked: false }),
+        });
+
+        if (response.ok) {
+          // If the todo was added successfully, fetch the updated todos
+          fetchTodos();
+        } else {
+          console.error('Failed to add todo');
+        }
+      } catch (error) {
+        console.error('Error adding todo:', error);
+      }
+
       setNewTodo("");
     }
   };
 
-  const handleDeleteTodo = (index) => {
-    const newTodos = [...todos];
-    newTodos.splice(index, 1);
-    setTodos(newTodos);
+  const handleDeleteTodo = async (index) => {
+    try {
+      const response = await fetch(`http://your-php-server/api/deleteTodo.php?id=${todos[index].id}`, {
+        method: 'DELETE',
+      });
+
+      if (response.ok) {
+        // If the todo was deleted successfully, fetch the updated todos
+        fetchTodos();
+      } else {
+        console.error('Failed to delete todo');
+      }
+    } catch (error) {
+      console.error('Error deleting todo:', error);
+    }
   };
 
-  const handleToggleTodo = (index) => {
-    const newTodos = [...todos];
-    newTodos[index].checked = !newTodos[index].checked;
-    setTodos(newTodos);
+  const handleToggleTodo = async (index) => {
+    try {
+      const response = await fetch(`http://your-php-server/api/updateTodo.php?id=${todos[index].id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ checked: !todos[index].checked }),
+      });
+
+      if (response.ok) {
+        // If the todo was updated successfully, fetch the updated todos
+        fetchTodos();
+      } else {
+        console.error('Failed to update todo');
+      }
+    } catch (error) {
+      console.error('Error updating todo:', error);
+    }
   };
 
   return (
-  
     <div>
       <h1>To-Do List</h1>
       <input
@@ -70,5 +128,4 @@ const TodoList = () => {
   );
 };
 
-
-export default TodoList
+export default TodoList;
