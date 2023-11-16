@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom';
 import TodoList from './App.jsx';
 import Tab from './Tab1.jsx'; // Correct the file name
 import { Box, Box2, Box3 } from './Box.jsx'; // Correct the file name
+import { CreateSpace, Spaces } from './components/space';
 import PomodoroTimer from './pomodorotimer.jsx';
+
 import './index.css'
 import { Grid, Paper, colors } from '@mui/material';
 
@@ -31,7 +33,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <TodoList /> 
           </div>
           <div className="content5 centered">
-             content 5
+             <CreateSpace />
           </div>
           <div className="content6">
             <h2>👋 HI! Shemsou </h2>
