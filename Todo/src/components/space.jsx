@@ -1,8 +1,10 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
 import axios from 'axios';
 import { IoClose } from "react-icons/io5";
 import './space.css';
 
+// eslint-disable-next-line react/prop-types
 const CloseButton = ({ onClick }) => {
   return (
     <button onClick={onClick} style={buttonStyles}>

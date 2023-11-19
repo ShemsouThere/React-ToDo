@@ -21,10 +21,20 @@ border: 1px solid rgba(0, 0, 0, 0.34);
   
   .centered-list li {
     padding-top: 60px;
-    padding-bottom: 60px;
+    padding-bottom: 40px;
     text-align: center; /* Center list items horizontally */
   }
-
+  .centered-list-space {
+    list-style-type: none;
+    padding: 0;
+    text-align: left; /* Reset text alignment for list items */
+  }
+  
+  .centered-list-space li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center; /* Center list items horizontally */
+  }
 .box1{
     background-color: rgb(0, 0, 0);
     border-radius: 10px;
