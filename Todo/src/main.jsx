@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom';
 import TodoList from './App.jsx';
 import Tab from './Tab1.jsx'; // Correct the file name
 import { Box, Box2, Box3 } from './Box.jsx'; // Correct the file name
-import { CreateSpace, Spaces } from './components/space';
+import { CreateUser, Loginuser } from './components/user.jsx';
+import { CreateSpace, Spaces } from './components/space.jsx';
+
 import PomodoroTimer from './pomodorotimer.jsx';
 
 import './index.css'
@@ -34,6 +36,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           </div>
           <div className="content5 centered">
              <CreateSpace />
+             <span>
+             <CreateUser />
+             </span>
           </div>
           <div className="content6">
             <h2>👋 HI! Shemsou </h2>

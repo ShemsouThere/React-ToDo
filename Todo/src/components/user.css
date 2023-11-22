@@ -1,0 +1,79 @@
+.create_user_form_container {
+    background: rgba(0, 0, 0, 0.16);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px);
+    border: 1px solid rgba(0, 0, 0, 0.34);
+    border-radius: 10px;
+    height: 300px;
+    width: 500px;
+    text-align: center;
+    font-size: 40px;
+    color: white;
+  
+    /* Centering styles */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+.close-button{
+    position: absolute;
+    top: 30%;
+    left: 94%;
+    transform: translate(-50%, -150%);
+
+  }
+.create-button {
+    position: absolute;
+    top: 100%;
+    left: 84%;
+    transform: translate(-50%, -150%);
+    width: 100px;
+    height: auto;
+    font-size: 25px;
+    font-weight: 300;
+    text-align: center;
+    padding: 2%;
+}
+
+
+
+.cool-label {
+    position: absolute;
+    top: 44%;
+    left: 38%;
+    transform: translate(-50%, -150%);
+    color: #000000;
+    font-size: 25px;
+    font-weight: 500;
+    pointer-events: none;
+    transition: all 0.3s ease;
+  }
+  
+.cool-input {
+    width: 300px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: border-color 0.3s ease;
+}
+  
+  .cool-input:focus {
+    outline: none;
+    border-color: dodgerblue;
+  }
+  
+  .cool-input:focus + .cool-label,
+  .cool-input:valid + .cool-label {
+    font-size: 12px;
+    top: calc(-50% - 18px);
+    color: dodgerblue;
+  }
