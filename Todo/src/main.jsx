@@ -2,19 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import TodoList from './App.jsx';
 import Tab from './Tab1.jsx'; // Correct the file name
-import { Box, Box2, Box3 } from './Box.jsx'; // Correct the file name
+import { Box3 } from './Box.jsx'; // Correct the file name
 import { CreateUser, Loginuser } from './components/user.jsx';
-import { CreateSpace, Spaces } from './components/space.jsx';
+import { CreateSpace } from './components/space.jsx';
+import { Provider } from 'react-redux';
+import store from './store'; // Your Redux store
 
 import PomodoroTimer from './pomodorotimer.jsx';
 
 import './index.css'
-import { Grid, Paper, colors } from '@mui/material';
+
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-
+  <Provider store={store}>
 
 <section>
 
@@ -39,6 +41,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
              <span>
              <CreateUser />
              </span>
+             <Loginuser />
           </div>
           <div className="content6">
             <h2>👋 HI! Shemsou </h2>
@@ -46,6 +49,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
         </div>
       </section>
-
+      </Provider>
   </React.StrictMode>
 );

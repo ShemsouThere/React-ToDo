@@ -1,25 +1,28 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
+import { useSelector } from 'react-redux';
 
 const TodoList = () => {
   const [todos, setTodos] = useState([]);
+  // eslint-disable-next-line no-unused-vars
   const [newTodo, setNewTodo] = useState('');
-  const [space_id, setspace_id] = useState('');
+  const [space_id, setSpace_id] = useState('');
   const [todo_id, setTodoId] = useState('');
   const [task, setTask] = useState('');
+  // eslint-disable-next-line no-unused-vars
   const [Priority, setPriority] = useState('');
   const [due_date, setDueDate] = useState('');
   const [status, setStatus] = useState('');
-
+  const spaceId = useSelector((state) => state.spaceId);
 
 
   useEffect(() => {
     fetchTodos();
-  }, []); // Empty dependency array, so it fetches todos only once on component mount
+  }, [spaceId]); // Run fetchTodos whenever spaceId changes
   
   const fetchTodos = () => {
-    axios.get('http://localhost/todo/fetchtodo.php?space_id=1')
+    axios.get(`http://localhost/todo/fetchtodo.php?space_id=${spaceId}`)
       .then((response) => {
         setTodos(response.data);
       })
@@ -28,13 +31,14 @@ const TodoList = () => {
       });
   };
   
+  
 
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const url = 'http://localhost/todo/createtodo.php';
     const formData = new FormData();
-    formData.append('space_id', space_id);
+    formData.append('space_id', spaceId);
     formData.append('todo_id', todo_id);
     formData.append('task', task);
     formData.append('due_date', due_date);
@@ -62,11 +66,13 @@ const TodoList = () => {
       });
   };
 
-  const handleToggleTodo = (index) => {
-    const newTodos = [...todos];
-    newTodos[index].checked = !newTodos[index].checked;
-    setTodos(newTodos);
+  const handleToggleTodo = (todoId, isChecked) => {
+    const updatedTodos = todos.map((todo) =>
+      todo.todo_id === todoId ? { ...todo, completed: isChecked } : todo
+    );
+    setTodos(updatedTodos);
   };
+  
 
   return (
     <div>
@@ -77,12 +83,6 @@ const TodoList = () => {
           value={todo_id}
           placeholder="Todo ID"
           onChange={(e) => setTodoId(e.target.value)}
-        />
-        <input
-          type="text"
-          value={space_id}
-          placeholder="Space ID"
-          onChange={(e) => setspace_id(e.target.value)}
         />
         <input
           type="text"
@@ -112,7 +112,7 @@ const TodoList = () => {
   {todos.map((todo) => (
     <li key={todo.todo_id} className="todo-item">
       <div className="todo-info">
-        <strong>Task:</strong> {todo.task} | <strong>Priority:</strong> {todo.Priority} |
+        <strong>Task:</strong> {todo.task} |
         <strong>Due Date:</strong> {todo.due_date} | <strong>Status:</strong> {todo.status}
       </div>
       <div className="todo-actions">

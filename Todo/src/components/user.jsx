@@ -1,8 +1,10 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
 import axios from 'axios';
 import { IoClose } from "react-icons/io5";
 import './user.css';
 
+// eslint-disable-next-line react/prop-types
 const CloseButton = ({ onClick }) => {
   return (
     <button onClick={onClick} style={buttonStyles}>
@@ -97,35 +99,68 @@ export const CreateUser = () => {
 };
 
 
-export const Loginuser = () => { 
-    return (
-        <>
-          <button onClick={handleToggle}>Login</button>
-          {isVisible && !isLoggedIn && (
-            <form className='login_form_container'>
-              <div className='close-button' onClick={handleClose}>
-                <CloseButton onClick={handleClose} />
-              </div>
-              <label htmlFor="username" className="cool-label">UserName</label>
-              <input
-                type="text"
-                id="username"
-                className="cool-input"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-              />
-              <label htmlFor="password" className="cool-label">Password</label>
-              <input
-                type="password"
-                id="password"
-                className="cool-input"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <button className='login-button' onClick={handleLogin}>Login</button>
-            </form>
-          )}
-        </>
-      );
+export const Loginuser = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [isVisible, setIsVisible] = useState(false);
+
+  const handleToggle = () => {
+    setIsVisible(!isVisible);
+  };
+
+  const handleClose = () => {
+    setIsVisible(false);
+  };
+
+  const handleLogin = () => {
+    // Implement login functionality using axios or other methods
+    // Example:
+    const loginData = {
+      username: username,
+      password: password,
+    };
+
+    axios.post('http://localhost/todo/login.php', loginData)
+      .then(() => {
+        // Handle successful login
+        alert('Logged in successfully!');
+      })
+      .catch(() => {
+        // Handle login error
+        alert('Login failed. Please try again.');
+      });
+  };
+
+  return (
+    <>
+      <button onClick={handleToggle}>Login</button>
+      {isVisible && (
+        <form className='create_user_form_container'>
+          <div className='close-button' onClick={handleClose}>
+            <CloseButton onClick={handleClose} />
+          </div>
+          <label htmlFor="username" className="cool-label">UserName - Password</label>
+          <input
+            type="text"
+            id="username"
+            className="cool-input"
+            placeholder='USERNAME'
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <label htmlFor="password" className="cool-label">Password</label>
+          <input
+            type="password"
+            id="password"
+            className="password-input"
+            placeholder='**********'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button className='login-button' onClick={handleLogin}>Login</button>
+        </form>
+      )}
+    </>
+  );
 };
 

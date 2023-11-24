@@ -6,12 +6,14 @@ import { BiAddToQueue } from 'react-icons/bi';
 import { BiSquareRounded } from 'react-icons/bi';
 import { AiOutlineCalendar } from 'react-icons/ai';
 import axios from 'axios'; // Import Axios
+import { useDispatch } from 'react-redux';
+
 
 const Tab = () => {
   const [expanded, setExpanded] = useState(false);
   const [spaces, setSpaces] = useState([]);
   const [selectedSpace, setSelectedSpace] = useState(null);
-
+  const dispatch = useDispatch();
   // Fetch spaces from PHP backend
   useEffect(() => {
     // Fetch spaces from PHP API endpoint using Axios
@@ -33,10 +35,12 @@ const Tab = () => {
     // You can use React Router or similar for navigation
     // For example:
     // history.push(`/main?spaceid=${space.space_id}&spacename=${space.space_name}&userid=${space.user_id}`);
+    dispatch({ type: 'SET_SPACE_ID', payload: space.space_id });
     console.log('Clicked space:', space);
   };
 
   return (
+    
     <div className='box'>
       <ul className='centered-list' style={{ listStyleType: 'none' }}>
         <li>

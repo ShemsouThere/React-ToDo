@@ -1,6 +1,9 @@
+// eslint-disable-next-line no-unused-vars
 import React from 'react'
 import './Tab.css'
+// eslint-disable-next-line no-unused-vars
 import { BiColor } from 'react-icons/bi';
+// eslint-disable-next-line no-unused-vars
 import { responsiveFontSizes } from '@mui/material';
 
 export const Box = () => {
@@ -24,6 +27,7 @@ export const Box2 = () => {
 };
 
 export const Box3 = (props) => {
+  // eslint-disable-next-line react/prop-types
   const { myVar } = props; // Destructure the variable from props
   return (
     <div className='Box3'> {/* Updated class name */}

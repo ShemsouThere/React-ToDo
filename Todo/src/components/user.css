@@ -6,7 +6,7 @@
     -webkit-backdrop-filter: blur(5.5px);
     border: 1px solid rgba(0, 0, 0, 0.34);
     border-radius: 10px;
-    height: 300px;
+    height: 350px;
     width: 500px;
     text-align: center;
     font-size: 40px;
@@ -43,7 +43,7 @@
 
 .cool-label {
     position: absolute;
-    top: 44%;
+    top: 24%;
     left: 38%;
     transform: translate(-50%, -150%);
     color: #000000;
@@ -60,7 +60,7 @@
     border-radius: 5px;
     font-size: 16px;
     position: absolute;
-    top: 50%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
     transition: border-color 0.3s ease;
@@ -77,3 +77,42 @@
     top: calc(-50% - 18px);
     color: dodgerblue;
   }
+
+
+  .login-button {
+    position: absolute;
+    top: 100%;
+    left: 84%;
+    transform: translate(-50%, -150%);
+    width: 100px;
+    height: auto;
+    font-size: 25px;
+    font-weight: 300;
+    text-align: center;
+    padding: 2%;
+}
+
+.password-input {
+  width: 300px;
+  padding: 12px;
+  border: 1px solid #8f2020;
+  border-radius: 5px;
+  font-size: 16px;
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: border-color 0.3s ease;
+}
+
+.password-input:focus {
+  outline: none;
+  border-color: dodgerblue;
+}
+
+.password-input:focus + .password-label,
+.cpassword-input:valid + .password-label {
+  font-size: 12px;
+  top: calc(-50% - 18px);
+  color: dodgerblue;
+}
