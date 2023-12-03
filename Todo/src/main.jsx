@@ -6,8 +6,8 @@ import { Box3 } from './Box.jsx'; // Correct the file name
 import { CreateUser, Loginuser } from './components/user.jsx';
 import { CreateSpace } from './components/space.jsx';
 import { Provider } from 'react-redux';
-import store from './store'; // Your Redux store
 
+import store from './store'; // Your Redux store
 import PomodoroTimer from './pomodorotimer.jsx';
 
 import './index.css'
@@ -49,6 +49,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
         </div>
       </section>
+
+
       </Provider>
   </React.StrictMode>
 );

@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { IoClose } from "react-icons/io5";
+import Cookies from 'js-cookie'; // Import the js-cookie library
 import './user.css';
 
 // eslint-disable-next-line react/prop-types
@@ -99,6 +100,8 @@ export const CreateUser = () => {
 };
 
 
+
+
 export const Loginuser = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -113,23 +116,33 @@ export const Loginuser = () => {
   };
 
   const handleLogin = () => {
-    // Implement login functionality using axios or other methods
-    // Example:
-    const loginData = {
+    const loginData = new FormData();
+    loginData.append('username', username);
+    loginData.append('password', password);
+    console.log('Form Data:', {
       username: username,
       password: password,
-    };
-
+    });
+  
     axios.post('http://localhost/todo/login.php', loginData)
-      .then(() => {
-        // Handle successful login
+      .then((response) => {
+        console.log('Response:', response.data); // Log the entire response data
+        const token = response.data.token;
+        
+        // Set the token in cookies
+        Cookies.set('jwtToken', token, { expires: 7 }); // 'jwtToken' is the name of the cookie
+        console.log('Token:', token); // Log the token to the console
         alert('Logged in successfully!');
+        // Other actions after successful login
       })
-      .catch(() => {
-        // Handle login error
+      .catch((error) => {
+        console.error('Login failed:', error);
         alert('Login failed. Please try again.');
       });
   };
+  
+
+
 
   return (
     <>
@@ -137,12 +150,12 @@ export const Loginuser = () => {
       {isVisible && (
         <form className='create_user_form_container'>
           <div className='close-button' onClick={handleClose}>
-            <CloseButton onClick={handleClose} />
+          <CloseButton onClick={handleClose} />
           </div>
           <label htmlFor="username" className="cool-label">UserName - Password</label>
           <input
             type="text"
-            id="username"
+            name="username"
             className="cool-input"
             placeholder='USERNAME'
             value={username}
@@ -151,7 +164,7 @@ export const Loginuser = () => {
           <label htmlFor="password" className="cool-label">Password</label>
           <input
             type="password"
-            id="password"
+            name="password"
             className="password-input"
             placeholder='**********'
             value={password}
