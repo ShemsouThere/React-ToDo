@@ -118,7 +118,7 @@ export const Loginuser = () => {
       const handleCallbackResponse = (response) => {
         console.log("Encoded JWT ID token: " + response.credential);
         var userObject = jwtDecode(response.credential);
-        dispatch({ type: 'SET_USER_OBJECT', payload: userObject });
+        dispatch({ type: 'SET_USER_OBJECT', payload: userObject.name });
         console.log(userObject);
         setUser(userObject);
         
@@ -252,6 +252,6 @@ export const Loginuser = () => {
 };
 
 export const Name = () => {
-  const spaceId = useSelector((state) => state.spaceId);
-  <h1>spaceId.name</h1>
-}
+  const userObject = useSelector((state) => state.userObject);
+  return <h2>{userObject}</h2>;
+};

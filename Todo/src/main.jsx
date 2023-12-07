@@ -45,7 +45,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
              <Loginuser />
           </div>
           <div className="content6">
-            <h2>👋 HI! Shemsou  </h2><Name />
+            <h2>👋 HI!</h2><Name />
           </div>
 
         </div>
