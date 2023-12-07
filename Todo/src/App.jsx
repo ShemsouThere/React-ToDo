@@ -20,6 +20,7 @@ const TodoList = () => {
 
   useEffect(() => {
     fetchTodos();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [spaceId]); // Run fetchTodos whenever spaceId changes
   
   const fetchTodos = () => {

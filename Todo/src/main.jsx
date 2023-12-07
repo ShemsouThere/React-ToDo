@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom';
 import TodoList from './App.jsx';
 import Tab from './Tab1.jsx'; // Correct the file name
 import { Box3 } from './Box.jsx'; // Correct the file name
-import { CreateUser, Loginuser } from './components/user.jsx';
+import { CreateUser, Loginuser, Name} from './components/user.jsx';
 import { CreateSpace } from './components/space.jsx';
 import { Provider } from 'react-redux';
-
+// eslint-disable-next-line no-unused-vars
+import { useSelector } from 'react-redux';
 import store from './store'; // Your Redux store
 import PomodoroTimer from './pomodorotimer.jsx';
 
@@ -44,7 +45,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
              <Loginuser />
           </div>
           <div className="content6">
-            <h2>👋 HI! Shemsou </h2>
+            <h2>👋 HI! Shemsou  </h2><Name />
           </div>
 
         </div>
