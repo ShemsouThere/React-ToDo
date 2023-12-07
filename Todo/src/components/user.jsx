@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { IoClose } from "react-icons/io5";
 import Cookies from 'js-cookie'; // Import the js-cookie library
-import jwt_decode from "jwt-decode";
+import { jwtDecode } from 'jwt-decode';
 import './user.css';
 
 
@@ -115,7 +115,7 @@ export const Loginuser = () => {
     useEffect(() => {
       const handleCallbackResponse = (response) => {
         console.log("Encoded JWT ID token: " + response.credential);
-        var userObject = jwt_decode(response.credential);
+        var userObject = jwtDecode(response.credential);
         console.log(userObject);
       };
     
