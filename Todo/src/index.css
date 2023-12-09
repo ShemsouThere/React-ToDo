@@ -5,7 +5,8 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-image: url("assets/3d-rendering-dog-toy.jpg");
+  background-color: #213547;
+  background-image: url("assets/view-adorable-3d-cat.jpg");
   background-size: cover; /* or contain, or specific dimensions */
   background-repeat: no-repeat; /* or repeat, repeat-x, repeat-y */
   background-position: center center; /* or specific position */
@@ -70,7 +71,7 @@ body {
 .content6 {
   grid-area: content6;
   background-color: transparent;
-  color: white;
+  color: rgb(0, 0, 0);
   text-align: inherit;
   text-indent: 10%; /* Set the text indent to 7% */
   font-size: 30px;
