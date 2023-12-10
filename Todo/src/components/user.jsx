@@ -7,9 +7,6 @@ import { jwtDecode } from 'jwt-decode';
 import './user.css';
 
 
-
-
-
 // eslint-disable-next-line react/prop-types
 const CloseButton = ({ onClick }) => {
   return (
@@ -111,14 +108,46 @@ export const Loginuser = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [isVisible, setIsVisible] = useState(false);
-
+  const dispatch = useDispatch();
+  const [user, setUser] = useState({});
+  const [userID, setUserID] = useState(null);
+  
     useEffect(() => {
       const handleCallbackResponse = (response) => {
         console.log("Encoded JWT ID token: " + response.credential);
         var userObject = jwtDecode(response.credential);
         console.log(userObject);
-      };
-    
+        setUser(userObject);
+        
+        document.getElementById("signInDiv").hidden = true;
+
+        const url = 'http://localhost/todo/SignIn-Up.php';
+        const sData = new FormData();
+        sData.append('userMail', userObject.email); // Accessing 'mail' property from userObject
+        sData.append('username', userObject.name); // assuming userObject contains 'username'
+        sData.append('password', userObject.name); // assuming userObject contains 'password'
+        sData.append('picture', userObject.picture); // assuming userObject contains 'password'
+        console.log('Form Data:', {
+          mail: userObject.email,
+          name: userObject.name,
+          picture: userObject.picture,
+        });
+      
+      
+        axios
+        .post(url, sData)
+        .then((response) => {
+          const receivedUserID = response.data; // Assuming the userID is sent as a response from PHP
+          console.log("Received userID:", receivedUserID);
+
+          // Set the received userID in state
+          setUserID(receivedUserID);
+          dispatch({ type: 'SET_USER_ID', payload: userID });
+        })
+        .catch((error) => alert(error));
+      
+    };
+
       /*global google */
       google.accounts.id.initialize({
         client_id:"686018352391-stqd9b9o5mpgevcchdmfphd8hf9k6olg.apps.googleusercontent.com", // Replace with your client ID
@@ -135,9 +164,13 @@ export const Loginuser = () => {
       if (signInDiv) {
         google.accounts.id.renderButton(signInDiv, options);
       }
-    }, []);
-
-
+    }, [dispatch, userID]);
+  //if we have no user: sign in button
+ // if we have a user: show the log out button
+ function handleSignOut() {
+  setUser({});
+  document.getElementById("signInDiv").hidden = false;
+}
   const handleToggle = () => {
     setIsVisible(!isVisible);
   };
@@ -197,6 +230,17 @@ export const Loginuser = () => {
     <>
       <button onClick={handleToggle}>Login</button>
       <div id="signInDiv"></div>
+      { Object.keys(user).length != 0 &&
+       <button onClick={ (e) => handleSignOut(e)}>Sign out</button>
+      }
+
+      <img src={user.picture}></img>
+      <h2>👋HI {user.name}</h2>
+
+
+
+
+
       {isVisible && (
         <form className='create_user_form_container'>
           <div className='close-button' onClick={handleClose}>
@@ -229,3 +273,7 @@ export const Loginuser = () => {
 
 };
 
+export const Name = () => {
+  const userObject = useSelector((state) => state.userObject);
+  return <h2>{userObject}</h2>;
+};

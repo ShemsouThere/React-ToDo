@@ -1,5 +1,4 @@
-// eslint-disable-next-line no-unused-vars
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './Tab.css';
 import { DiAptana } from 'react-icons/di';
 import { BiAddToQueue } from 'react-icons/bi';
@@ -7,24 +6,32 @@ import { BiSquareRounded } from 'react-icons/bi';
 import { AiOutlineCalendar } from 'react-icons/ai';
 import axios from 'axios'; // Import Axios
 import { useDispatch } from 'react-redux';
-
+import { useSelector } from 'react-redux';
 
 const Tab = () => {
   const [expanded, setExpanded] = useState(false);
   const [spaces, setSpaces] = useState([]);
   const [selectedSpace, setSelectedSpace] = useState(null);
   const dispatch = useDispatch();
-  // Fetch spaces from PHP backend
+  const userID = useSelector((state) => state.userId); // Corrected case for 'userId'
+
   useEffect(() => {
-    // Fetch spaces from PHP API endpoint using Axios
-    axios.get('http://localhost/todo/fetchtabspace.php')
+    fetchSpaces();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userID]); // Run fetchTodos whenever spaceId changes
+  
+  const fetchSpaces = () => {
+    axios.get(`http://localhost/todo/fetchtabspace.php?user_id=${userID}`)
       .then((response) => {
-        setSpaces(response.data); // Assuming data is an array of objects with space_id and space_name
+        setSpaces(response.data);
       })
       .catch((error) => {
-        console.error('Error fetching spaces:', error);
+        console.error('Error fetching todos:', error);
       });
-  }, []);
+  };
+  
+  
+  
 
   const handleExpand = () => {
     setExpanded(!expanded);
