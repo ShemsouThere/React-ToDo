@@ -6,7 +6,7 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #213547;
-  background-image: url("assets/view-adorable-3d-cat.jpg");
+ 
   background-size: cover; /* or contain, or specific dimensions */
   background-repeat: no-repeat; /* or repeat, repeat-x, repeat-y */
   background-position: center center; /* or specific position */
