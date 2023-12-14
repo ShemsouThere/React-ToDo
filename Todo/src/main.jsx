@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import TodoList from './App.jsx';
 import Tab from './Tab1.jsx'; // Correct the file name
 import { Box3 } from './Box.jsx'; // Correct the file name
-import { CreateUser, Loginuser, Name} from './components/user.jsx';
+import { Loginuser, Name} from './components/user.jsx';
 import { CreateSpace } from './components/space.jsx';
 import { Provider } from 'react-redux';
 // eslint-disable-next-line no-unused-vars
@@ -39,9 +39,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           </div>
           <div className="content5 centered">
              <CreateSpace />
-             <span>
-             <CreateUser />
-             </span>
+             <span></span>
              <Loginuser />
           </div>
           <div className="content6">

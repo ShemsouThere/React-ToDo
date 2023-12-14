@@ -4,6 +4,7 @@ import axios from 'axios';
 import { IoClose } from "react-icons/io5";
 import Cookies from 'js-cookie'; // Import the js-cookie library
 import { jwtDecode } from 'jwt-decode';
+import { useDispatch, useSelector } from 'react-redux';
 import './user.css';
 
 
@@ -28,78 +29,6 @@ const iconStyles = {
   height: '44px', // Adjust height as needed
 };
 
-export const CreateUser = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [userid, setUserid] = useState('');
-  const [isVisible, setIsVisible] = useState(false);
-
-  const handleToggle = () => {
-    setIsVisible(!isVisible);
-  };
-
-  const handleClose = () => {
-    setIsVisible(false);
-  };
-
-  const handleSubmit = () => {
-    const url = 'http://localhost/todo/createuser.php';
-    const sData = new FormData();
-    sData.append('username', username);
-    sData.append('password', password);
-    sData.append('userid', userid);
-  
-    // Log the form data before sending the request
-    console.log('Form Data:', {
-      username: username,
-      password: password,
-      userid: userid
-    });
-  
-    axios.post(url, sData)
-      .then(response => alert(response.data))
-      .catch(error => alert(error));
-  };
-  
-
-  return (
-    <>
-      <button onClick={handleToggle}>Create New User</button>
-      {isVisible && (
-        <form className='create_user_form_container'>
-          <div className='close-button' onClick={handleClose}>
-            <CloseButton onClick={handleClose} />
-          </div>
-          <label htmlFor="username" className="cool-label">UserName</label>
-          <input
-            type="text"
-            id="username"
-            className="cool-input"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <input
-            type="text"
-            id="password"
-            placeholder='Password'
-            className="cool-input1"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <input
-            type="text"
-            id="userid"
-            placeholder='User Id'
-            className="cool-input1"
-            value={userid}
-            onChange={(e) => setUserid(e.target.value)}
-          />
-          <button className='create-button' onClick={handleSubmit}>Create</button>
-        </form>
-      )}
-    </>
-  );
-};
 
 
 
@@ -169,6 +98,8 @@ export const Loginuser = () => {
  // if we have a user: show the log out button
  function handleSignOut() {
   setUser({});
+  setUserID(null)
+  dispatch({ type: 'SET_USER_ID', payload: userID });
   document.getElementById("signInDiv").hidden = false;
 }
   const handleToggle = () => {
@@ -223,12 +154,18 @@ export const Loginuser = () => {
   
 
   };
-
+  const handleupdateuserid = () => {
+    const userId = Cookies.get('userId');
+    const [userID, setUserID] = useState(userID);
+    setUserID(userID);
+    dispatch({ type: 'SET_USER_ID', payload: userID });
+  }
 
   return (
     
     <>
       <button onClick={handleToggle}>Login</button>
+      <button onClick={handleupdateuserid}>updateuserid</button>
       <div id="signInDiv"></div>
       { Object.keys(user).length != 0 &&
        <button onClick={ (e) => handleSignOut(e)}>Sign out</button>

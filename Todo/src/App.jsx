@@ -34,8 +34,6 @@ const TodoList = () => {
   };
   
   
-
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const url = 'http://localhost/todo/createtodo.php';

@@ -9,12 +9,12 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 
 const Tab = () => {
+  const userID = useSelector((state) => state.userId); // Corrected case for 'userId'ss
   const [expanded, setExpanded] = useState(false);
   const [spaces, setSpaces] = useState([]);
   const [selectedSpace, setSelectedSpace] = useState(null);
   const dispatch = useDispatch();
-  const userID = useSelector((state) => state.userId); // Corrected case for 'userId'
-
+  
   useEffect(() => {
     fetchSpaces();
   // eslint-disable-next-line react-hooks/exhaustive-deps
