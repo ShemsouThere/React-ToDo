@@ -40,26 +40,28 @@ export const CreateSpace = () => {
   const handleClose = () => {
     setIsVisible(false);
   };
-
-  const handleSubmit = () => {
+  
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Prevent the default form submission
+  
     const url = 'http://localhost/todo/createspace.php';
     const sData = new FormData();
     sData.append('spacename', spacename);
     sData.append('spaceid', spaceid);
     sData.append('userid', userid);
-
+  
     console.log('Form Data:', {
       spacename: spacename,
       spaceid: spaceid,
       userid: userid,
     });
-
+  
     axios
       .post(url, sData)
       .then((response) => alert(response.data))
       .catch((error) => alert(error));
   };
-
+  
   return (
     <>
       <button onClick={handleToggle}>Create New Space</button>

@@ -16,6 +16,8 @@ const reducer = (state = initialState, action) => {
       return { ...state, spaceId: action.payload };
     case 'SET_USER_ID':
       return { ...state, userId: action.payload };
+      case 'SET_USER_MAIL':
+        return { ...state, email: action.payload };
     case 'SET_USER_OBJECT':
       return { ...state, userObject: action.payload };
     default:

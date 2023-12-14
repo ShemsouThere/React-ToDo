@@ -56,6 +56,7 @@ export const Loginuser = () => {
         sData.append('username', userObject.name); // assuming userObject contains 'username'
         sData.append('password', userObject.name); // assuming userObject contains 'password'
         sData.append('picture', userObject.picture); // assuming userObject contains 'password'
+        dispatch({ type: 'SET_USER_MAIL', payload: userObject.email });
         console.log('Form Data:', {
           mail: userObject.email,
           name: userObject.name,
