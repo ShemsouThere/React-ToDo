@@ -7,46 +7,42 @@
   -webkit-backdrop-filter: blur(5.5px);
   border: 1px solid rgba(0, 0, 0, 0.34);
   border-radius: 10px;
-  height: 100%;
-  width: 90%;
+  height: 400px;
+  width: 75%;
   text-align: center;
   color: white;
   background-image: url('https://static.vecteezy.com/system/resources/previews/003/452/115/non_2x/wildlife-elk-in-forest-nature-landscape-illustration-free-vector.jpg');
   background-size: cover; /* Assurez-vous que l'image couvre l'ensemble de l'arrière-plan */
   background-position: center; /* Centre l'image sur l'arrière-plan */
   background-repeat: no-repeat; /* Évite la répétition de l'image */
-
-  margin: 0;
+  margin-top: -150px;
+  margin-left: 10px;
 }
 
 .timetitle {
-    font-size: 70px;
-    margin-top: 30px;
-    margin-bottom: -60px;
-    margin-left: 40px;
+    font-size: 40px;
+    margin-top: 20px;
+    margin-bottom: -10px;
+    margin-left: 10px;
     color: rgb(255, 255, 255);
     position: relative;
-    left: -38%;
+    left: -35%;
 }
 .timer {
-    font-size: 140px;
-    font-weight: 700;
-    margin-top: 10px;
+    font-size: 80px;
+    font-weight: 500;
+    margin-top: 5px;
 }
 
 .start-pause {
-
-    margin: 10px;
+    margin: 20px;
     position:relative;
-    top: -30%;
-    left: -20%;
-
     --bg: rgb(143, 143, 228);
     --text-color: #fff;
     position: relative;
-    width: 150px;
+    width: 70px;
     border: none;
-    font-size: 18px;
+    font-size: 12px;
     background: var(--bg);
     color: var(--text-color);
     padding: 1em;
@@ -57,7 +53,7 @@
     opacity: 0.8;
     letter-spacing: 1px;
     box-shadow: rgb(143, 143, 228) 0px 7px 2px, #000 0px 8px 5px;
-    
+    margin-top: -40px;
 }
 
 
@@ -68,16 +64,13 @@
 
 
 .reset {
-    margin: 10px;
+    margin: 20px;
     position:relative;
-    top: -30%;
-    right: -20%;
     --bg: rgb(143, 143, 228);
     --text-color: #fff;
-    position: relative;
-    width: 150px;
+    width: 70px;
     border: none;
-    font-size: 18px;
+    font-size: 12px;
     background: var(--bg);
     color: var(--text-color);
     padding: 1em;
@@ -88,7 +81,7 @@
     opacity: 0.8;
     letter-spacing: 1px;
     box-shadow: rgb(143, 143, 228) 0px 7px 2px, #000 0px 8px 5px;
-    margin-top: 80px;
+    margin-top: -40px;
 }
 
 .reset:hover {
@@ -96,16 +89,28 @@
   }
   
 .timersettings{
-    font-size: 24px;
-    margin-left: -1200px;
-    margin-top: 5px;
+    font-size: 12px;
+    margin-left: -500px;
+    margin-top: -30px;
+
 }
-.timercontainor{
-    font-size: 24px;
+.timercontainorbreak, .timercontainorwork{
+    font-size: 12px;
     color: black;
     background-color: white;
-    height: 30px;
-    width: 60px;
-    text-align: center;
-    margin: 5px;
+    height: 20px;
+    width: 40px;
+    margin-top: 40px;
+    margin-left: 10px;
+    border-radius: 10px;
+    text-align: center;   
 }
+
+
+.worktimer, .breaktimer{
+    background-color: white;
+    color: black;
+    padding: 5px;
+    border-radius: 10px;
+}
+

@@ -57,16 +57,16 @@ function PomodoroTimer() {
       <button className="start-pause" onClick={handleStartPause}>{isRunning ? 'Pause' : 'Start'}</button>
       <button className="reset" onClick={handleReset}>Reset</button>
       <div className='timersettings'>
-        <label>Work Time (minutes):</label>
-        <input className='timercontainor'
+      <span className='worktimer'><label className='worktimer'>Work Time (minutes):</label></span>
+        <input className='timercontainorwork'
           type="number"
           value={workTime}
           onChange={(e) => setWorkTime(parseInt(e.target.value, 10))}
         />
       </div>
       <div className='timersettings'>
-        <label>Break Time (minutes):</label>
-        <input className='timercontainor'
+        <span className='breaktimer'><label>Break Time (minutes):</label></span>
+        <input className='timercontainorbreak'
           type="number"
           value={breakTime}
           onChange={(e) => setBreakTime(parseInt(e.target.value, 10))}
@@ -77,3 +77,4 @@ function PomodoroTimer() {
 }
 
 export default PomodoroTimer;
+

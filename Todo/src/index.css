@@ -47,11 +47,13 @@ body {
   align-items: center;
   position: relative;
   bottom: 15%;
+  margin-left: 10px;
 
 }
 .content2{
   grid-area: content2;
   background-color: transparent;
+  margin-left: -80px;
 }
 .content3{
   display: flex;
@@ -67,6 +69,7 @@ body {
 .content5{
   grid-area: content5;
   background-color: transparent;
+  margin-top: -1750px;
 }
 .content6 {
   grid-area: content6;
@@ -74,14 +77,14 @@ body {
   color: rgb(0, 0, 0);
   text-align: inherit;
   text-indent: 10%; /* Set the text indent to 7% */
-  font-size: 30px;
+  font-size: 12px;
 }
 
 
 
 
 a {
-  font-weight: 500;
+  font-weight: 10;
   color: #646cff;
   text-decoration: inherit;
 }

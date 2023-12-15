@@ -175,9 +175,6 @@ export const Loginuser = () => {
       <h2>👋HI {user.name}</h2>
 
 
-
-
-
       {isVisible && (
         <form className='create_user_form_container'>
           <div className='close-button' onClick={handleClose}>
