@@ -7,9 +7,13 @@ import { AiOutlineCalendar } from 'react-icons/ai';
 import axios from 'axios'; // Import Axios
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+//-------spaces.jsx----------
+import { IoClose } from 'react-icons/io5';
+import './components/space.css';
 
 const Tab = () => {
-  const userID = useSelector((state) => state.userId); // Corrected case for 'userId'ss
+  const userID = useSelector((state) => state.userId); 
+  const email = useSelector((state) => state.email);
   const [expanded, setExpanded] = useState(false);
   const [spaces, setSpaces] = useState([]);
   const [selectedSpace, setSelectedSpace] = useState(null);
@@ -18,10 +22,10 @@ const Tab = () => {
   useEffect(() => {
     fetchSpaces();
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [userID]); // Run fetchTodos whenever spaceId changes
+  }, [email]); // Run fetchTodos whenever userId changes
   
   const fetchSpaces = () => {
-    axios.get(`http://localhost/todo/fetchtabspace.php?user_id=${userID}`)
+    axios.get(`http://localhost/todo/fetchtabspace.php?email=${email}`)
       .then((response) => {
         setSpaces(response.data);
       })

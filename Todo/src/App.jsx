@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 
 const TodoList = () => {
   const [todos, setTodos] = useState([]);
+  const [doneTodos, setDoneTodos] = useState([]); // State for completed todos
   // eslint-disable-next-line no-unused-vars
   const [newTodo, setNewTodo] = useState('');
   // eslint-disable-next-line no-unused-vars
@@ -71,6 +72,14 @@ const TodoList = () => {
       todo.todo_id === todoId ? { ...todo, completed: isChecked } : todo
     );
     setTodos(updatedTodos);
+
+    if (isChecked) {
+      const completedTodo = todos.find((todo) => todo.todo_id === todoId);
+      setDoneTodos([...doneTodos, completedTodo]);
+    } else {
+      const remainingTodos = doneTodos.filter((todo) => todo.todo_id !== todoId);
+      setDoneTodos(remainingTodos);
+    }
   };
   
 
@@ -78,12 +87,6 @@ const TodoList = () => {
     <div>
       <h1>To-Do List</h1>
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={todo_id}
-          placeholder="Todo ID"
-          onChange={(e) => setTodoId(e.target.value)}
-        />
         <input
           type="text"
           value={task}
@@ -129,6 +132,17 @@ const TodoList = () => {
     </li>
   ))}
 </ul>
+<h1>Done Todo List</h1>
+      <ul className="done-todo-list">
+        {doneTodos.map((doneTodo) => (
+          <li key={doneTodo.todo_id} className="done-todo-item">
+            <div className="todo-info">
+              <strong>Task:</strong> {doneTodo.task} |
+              <strong>Due Date:</strong> {doneTodo.due_date} | <strong>Status:</strong> {doneTodo.status}
+            </div>
+          </li>
+        ))}
+      </ul>
 
 
     </div>
