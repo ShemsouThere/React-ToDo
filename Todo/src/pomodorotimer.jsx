@@ -56,17 +56,17 @@ function PomodoroTimer() {
       </p>
       <button className="start-pause" onClick={handleStartPause}>{isRunning ? 'Pause' : 'Start'}</button>
       <button className="reset" onClick={handleReset}>Reset</button>
-      <div>
+      <div className='timersettings'>
         <label>Work Time (minutes):</label>
-        <input
+        <input className='timercontainor'
           type="number"
           value={workTime}
           onChange={(e) => setWorkTime(parseInt(e.target.value, 10))}
         />
       </div>
-      <div>
+      <div className='timersettings'>
         <label>Break Time (minutes):</label>
-        <input
+        <input className='timercontainor'
           type="number"
           value={breakTime}
           onChange={(e) => setBreakTime(parseInt(e.target.value, 10))}

@@ -2,15 +2,16 @@
 .box{
     border-radius: 10px;
     height: auto;
+    
     width: 110px;
     text-align: center;
     /* From https://css.glass */
-background: rgba(0, 0, 0, 0.603);
+background: white;
 border-radius: 16px;
 box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 backdrop-filter: blur(5.5px);
 -webkit-backdrop-filter: blur(5.5px);
-border: 1px solid rgba(0, 0, 0, 0.34);
+border: 2px solid black;
 
 }
 .centered-list {

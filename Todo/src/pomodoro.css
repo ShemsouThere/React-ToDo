@@ -7,17 +7,23 @@
   -webkit-backdrop-filter: blur(5.5px);
   border: 1px solid rgba(0, 0, 0, 0.34);
   border-radius: 10px;
-  height: 80%;
-  width: 80%;
+  height: 100%;
+  width: 90%;
   text-align: center;
   color: white;
+  background-image: url('https://static.vecteezy.com/system/resources/previews/003/452/115/non_2x/wildlife-elk-in-forest-nature-landscape-illustration-free-vector.jpg');
+  background-size: cover; /* Assurez-vous que l'image couvre l'ensemble de l'arrière-plan */
+  background-position: center; /* Centre l'image sur l'arrière-plan */
+  background-repeat: no-repeat; /* Évite la répétition de l'image */
 
+  margin: 0;
 }
 
 .timetitle {
     font-size: 70px;
-    margin-top: 10px;
+    margin-top: 30px;
     margin-bottom: -60px;
+    margin-left: 40px;
     color: rgb(255, 255, 255);
     position: relative;
     left: -38%;
@@ -35,11 +41,12 @@
     top: -30%;
     left: -20%;
 
-    --bg: #e74c3c;
+    --bg: rgb(143, 143, 228);
     --text-color: #fff;
     position: relative;
     width: 150px;
     border: none;
+    font-size: 18px;
     background: var(--bg);
     color: var(--text-color);
     padding: 1em;
@@ -49,7 +56,7 @@
     border-radius: 5px;
     opacity: 0.8;
     letter-spacing: 1px;
-    box-shadow: #c0392b 0px 7px 2px, #000 0px 8px 5px;
+    box-shadow: rgb(143, 143, 228) 0px 7px 2px, #000 0px 8px 5px;
     
 }
 
@@ -65,11 +72,12 @@
     position:relative;
     top: -30%;
     right: -20%;
-    --bg: #e74c3c;
+    --bg: rgb(143, 143, 228);
     --text-color: #fff;
     position: relative;
     width: 150px;
     border: none;
+    font-size: 18px;
     background: var(--bg);
     color: var(--text-color);
     padding: 1em;
@@ -79,10 +87,25 @@
     border-radius: 5px;
     opacity: 0.8;
     letter-spacing: 1px;
-    box-shadow: #c0392b 0px 7px 2px, #000 0px 8px 5px;
+    box-shadow: rgb(143, 143, 228) 0px 7px 2px, #000 0px 8px 5px;
+    margin-top: 80px;
 }
 
 .reset:hover {
     opacity: 1;
   }
   
+.timersettings{
+    font-size: 24px;
+    margin-left: -1200px;
+    margin-top: 5px;
+}
+.timercontainor{
+    font-size: 24px;
+    color: black;
+    background-color: white;
+    height: 30px;
+    width: 60px;
+    text-align: center;
+    margin: 5px;
+}

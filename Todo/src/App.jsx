@@ -84,28 +84,29 @@ const TodoList = () => {
   
 
   return (
-    <div>
+    <div className='taskapp'>
       <h1>To-Do List</h1>
       <form onSubmit={handleSubmit}>
-        <input
+        <input className='tasktext'
           type="text"
           value={task}
-          placeholder="Task"
+          placeholder="Enter Your Task"
           onChange={(e) => setTask(e.target.value)}
         />
         <input
-          type="date"
+          type="date" className='taskdate'
           value={due_date}
           placeholder="Due Date"
           onChange={(e) => setDueDate(e.target.value)}
         />
-        <select value={status} onChange={(e) => setStatus(e.target.value)}>
+        <select className='taskprio' value={status} onChange={(e) => setStatus(e.target.value)}>
+        <option value="" selected disabled>Task Priority</option>
           <option value="low">Low</option>
           <option value="medium">Medium</option>
           <option value="high">High</option>
         </select>
 
-        <button type="submit">Add</button>
+        <button className='addtask' type="submit">Add</button>
       </form>
       {/* Rest of your code */}
 

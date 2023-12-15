@@ -56,7 +56,7 @@ const Tab = () => {
       <ul className='centered-list' style={{ listStyleType: 'none' }}>
         <li>
           <a onClick={handleExpand}>
-            <BiSquareRounded size={55} color='white' />
+            <BiSquareRounded size={55} color='black' />
           </a>
           {expanded && (
             <ul className='centered-list-space' style={{ listStyleType: 'none' }}>
@@ -68,7 +68,7 @@ const Tab = () => {
                     onMouseOut={() => setSelectedSpace(null)}
                     onClick={() => handleSpaceClick(space)}
                   >
-                    <BiSquareRounded size={45} color='white' />
+                    <BiSquareRounded size={45} color='black' />
                     {selectedSpace === space && <span>{space.space_name}</span>}
                   </a>
                 </li>
@@ -78,17 +78,17 @@ const Tab = () => {
         </li>
         <li>
           <a href='link2'>
-            <AiOutlineCalendar size={55} color='white' />
+            <AiOutlineCalendar size={55} color='black' />
           </a>
         </li>
         <li>
           <a href='link3'>
-            <BiAddToQueue size={55} color='white' />
+            <BiAddToQueue size={55} color='black' />
           </a>
         </li>
         <li>
           <a href='./settings.html'>
-            <DiAptana size={55} color='white' />
+            <DiAptana size={55} color='black' />
           </a>
         </li>
       </ul>

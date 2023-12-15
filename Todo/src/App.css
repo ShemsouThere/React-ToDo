@@ -36,6 +36,56 @@
 }
 
 .todo-list {
+ 
+  width: 60px;
+}
+.taskdate, .tasktext {
+  width: 250px;
+  height: 60px;
+  background-color: white;
+  color: black;
+  border: 1px solid #666; /* Bordure */
+  padding: 5px; /* Marge intérieure */
+  border-radius: 10px;
+  font-size: 24px;
+  text-align: center;
+  margin: 5px;
+  display: 'inline-block',
+}
+.taskprio{
+  width: 250px;
+  height: 74px;
+  background-color: white;
+  color: black;
+  border: 1px solid #666; /* Bordure */
+  padding: 5px; /* Marge intérieure */
+  border-radius: 10px;
+  font-size: 24px;
+  text-align: center;
+  margin: 5px;
+  display: 'inline-block',
+}
+.taskdate::-webkit-calendar-picker-indicator {
+  filter: invert(1); /* Inverse la couleur de l'icône du calendrier */
+  color: white; /* Couleur de l'icône du calendrier */
+  font-size: 1.5em;
+}
 
-  width: 60%;
+.addtask{
+  width: 120px;
+  height: 80px;
+  margin: 40px;
+  background-color: #F9B0C3;
+  color: black;
+  font-size: 24px;
+
+}
+
+.taskapp{
+  margin-top: -150px;
+  margin-left: -600px;
+}
+
+h1{
+  color: black;
 }
