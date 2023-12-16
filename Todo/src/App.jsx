@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 import { useSelector } from 'react-redux';
+import { IoCheckmarkDone } from "react-icons/io5";
+import { RxCross2 } from "react-icons/rx";
 
 const TodoList = () => {
   const [todos, setTodos] = useState([]);
@@ -108,38 +110,41 @@ const TodoList = () => {
 
         <button className='addtask' type="submit">Add</button>
       </form>
-      {/* Rest of your code */}
 
-
-
+     <div className='todo-container'>
       <ul className="todo-list">
   {todos.map((todo) => (
     <li key={todo.todo_id} className="todo-item">
-      <div className="todo-info">
-        <strong>Task:</strong> {todo.task} |
-        <strong>Due Date:</strong> {todo.due_date} | <strong>Status:</strong> {todo.status}
+      <div className="task-info">
+          <p className="class2">Task:</p> <span className="class2">{todo.task}</span>
+          <p className="class1">Due Date:</p> <span className="class2">{todo.due_date}</span> |
+          <p className="class1">Status:</p> <span className="class2">{todo.status}</span>
       </div>
       <div className="todo-actions">
-        <button onClick={() => handleDeleteTodo(todo.todo_id)}>Delete</button>
+        <button className="delete-button" onClick={() => handleDeleteTodo(todo.todo_id)}>
+          <RxCross2/>
+        </button>
         <label>
-          <input
-            type="checkbox"
-            checked={todo.completed}
-            onChange={(e) => handleToggleTodo(todo.todo_id, e.target.checked)}
-          />
-          Completed
+          <button
+            className={`checkbox-button ${todo.completed ? 'completed' : ''}`}
+            onClick={() => handleToggleTodo(todo.todo_id, !todo.completed)}
+          >
+            <IoCheckmarkDone size={20} color='white'/>
+          </button>
         </label>
       </div>
     </li>
   ))}
 </ul>
+</div>
+
 <h1>Done Todo List</h1>
       <ul className="done-todo-list">
         {doneTodos.map((doneTodo) => (
           <li key={doneTodo.todo_id} className="done-todo-item">
             <div className="todo-info">
-              <strong>Task:</strong> {doneTodo.task} |
-              <strong>Due Date:</strong> {doneTodo.due_date} | <strong>Status:</strong> {doneTodo.status}
+              <strong className='class1'>Task:</strong> <span className='class2'>{doneTodo.task}</span> |
+              <strong className='class1'>Due Date:</strong> <span className='class2'>{doneTodo.due_date}</span> | <strong className='class1'>Status:</strong> <span className='class2'>{doneTodo.status}</span>
             </div>
           </li>
         ))}

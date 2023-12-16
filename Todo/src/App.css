@@ -35,9 +35,17 @@
   color: #888;
 }
 
+
+
+.todo-container {
+  height: 300px; /* Set the desired fixed height */
+  overflow: auto; /* Add a scrollbar if the content overflows the fixed height */
+}
+
 .todo-list {
- 
-  width: 60px;
+  list-style-type: none;
+  padding: 0;
+  list-style-type: none;
 }
 .taskdate, .tasktext {
   width: 150px;
@@ -82,7 +90,7 @@
 }
 
 .taskapp{
-  margin-top: -630px;
+  margin-top: -300px;
   margin-left: -250px;
 }
 
@@ -91,3 +99,113 @@
   font-size: 30px;
   margin-top: 50px;
 }
+
+
+.done-todo-list {
+  list-style-type: none;
+  padding: 0;
+  list-style-type: none;
+}
+
+.done-todo-item {
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.todo-info {
+  display: flex;
+  align-items: center;
+}
+
+.class1 {
+  margin-right: 10px;
+}
+
+.class2 {
+  font-weight: bold;
+}
+
+.delete-button {
+  margin: 10px; /* Push the delete button to the right */
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+}
+
+.checkbox-button {
+  border: 1px solid dark;
+  border-radius: 5px;
+  background-color: rgb(116, 116, 135);
+  padding: 5px 5px;
+  cursor: pointer;
+  color: black;
+}
+
+.completed {
+  background-color: black; /* Ajoutez la couleur de fond souhaitée pour l'état complété */
+  color: red; /* Ajoutez la couleur de texte souhaitée pour l'état complété */
+  border: 1px solid rgb(192, 192, 192); /* Ajoutez la couleur de bordure souhaitée pour l'état complété */
+}
+
+.todo-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.todo-item {
+  display: flex;
+  flex-direction:row;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.task-info {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+
+
+}
+
+.task-header,
+.task-content {
+  display: flex;
+  align-items: center;
+}
+
+.class1 {
+  margin-right: 10px;
+}
+
+.class2 {
+  font-weight: bold;
+}
+
+.delete-button {
+  align-self: flex-end; /* Align the delete button to the right */
+  cursor: pointer;
+  color: red;
+}
+
+.checkbox-button {
+  cursor: pointer;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.checkbox-button.completed {
+  background-color: #ccc;
+  color: #333;
+}
+
