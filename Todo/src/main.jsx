@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import TodoList from './App.jsx';
 import Tab from './Tab1.jsx'; // Correct the file name
-import { Box3 } from './Box.jsx'; // Correct the file name
+import { Completedtasks} from './Box.jsx'; // Correct the file name
 import { Loginuser, Name} from './components/user.jsx';
 import { CreateSpace } from './components/space.jsx';
 import { Provider } from 'react-redux';
@@ -14,8 +14,8 @@ import PomodoroTimer from './pomodorotimer.jsx';
 import './index.css'
 
 
-
 ReactDOM.createRoot(document.getElementById('root')).render(
+
   <React.StrictMode>
   <Provider store={store}>
 
@@ -29,9 +29,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
               <PomodoroTimer />
           </div>
           <div className="content3 centered">
-             <Box3 var={14}/>{'\n'}
-             <Box3 var={14}/>{'\n'}
-             <Box3 var={14}/>
+             <Completedtasks />{'\n'}
           </div>
 
           <div className="content4 centered">
@@ -40,10 +38,13 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <div className="content5 centered">
              <CreateSpace />
              <span></span>
-             <Loginuser />
+             
           </div>
+
           <div className="content6">
-            <h2>👋 HI!</h2><Name />
+            <div className='name'>
+              <Loginuser/>
+            </div>
           </div>
 
         </div>

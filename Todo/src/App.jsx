@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
-import { useSelector } from 'react-redux';
 import { IoCheckmarkDone } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
+import { useSelector, useDispatch } from 'react-redux';
 
 const TodoList = () => {
+  const dispatch = useDispatch();
   const [todos, setTodos] = useState([]);
   const [doneTodos, setDoneTodos] = useState([]); // State for completed todos
   // eslint-disable-next-line no-unused-vars
@@ -19,6 +20,7 @@ const TodoList = () => {
   const [due_date, setDueDate] = useState('');
   const [status, setStatus] = useState('');
   const spaceId = useSelector((state) => state.spaceId);
+  const completedtasks = useSelector((state) => state.completedtasks);
 
 
   useEffect(() => {
@@ -78,6 +80,7 @@ const TodoList = () => {
     if (isChecked) {
       const completedTodo = todos.find((todo) => todo.todo_id === todoId);
       setDoneTodos([...doneTodos, completedTodo]);
+      dispatch({ type: 'SET_COMPLETED_TASKS', payload: completedtasks + 1 }); // Dispatch action to update completed tasks count
     } else {
       const remainingTodos = doneTodos.filter((todo) => todo.todo_id !== todoId);
       setDoneTodos(remainingTodos);
@@ -85,29 +88,37 @@ const TodoList = () => {
   };
   
 
+
   return (
     <div className='taskapp'>
       <h1>To-Do List</h1>
-      <form onSubmit={handleSubmit}>
-        <input className='tasktext'
-          type="text"
-          value={task}
-          placeholder="Enter Your Task"
-          onChange={(e) => setTask(e.target.value)}
-        />
-        <input
-          type="date" className='taskdate'
-          value={due_date}
-          placeholder="Due Date"
-          onChange={(e) => setDueDate(e.target.value)}
-        />
-        <select className='taskprio' value={status} onChange={(e) => setStatus(e.target.value)}>
+      <form onSubmit={handleSubmit} className="form-container">
+    <div className="input-container">
+      <input
+        className='tasktext'
+        type="text"
+        value={task}
+        placeholder="Enter Your Task"
+        onChange={(e) => setTask(e.target.value)}
+      />
+      <input
+        type="date"
+        className='taskdate'
+        value={due_date}
+        placeholder="Due Date"
+        onChange={(e) => setDueDate(e.target.value)}
+      />
+      <select
+        className='taskprio'
+        value={status}
+        onChange={(e) => setStatus(e.target.value)}
+      >
         <option value="" selected disabled>Task Priority</option>
           <option value="low">Low</option>
           <option value="medium">Medium</option>
           <option value="high">High</option>
         </select>
-
+</div>
         <button className='addtask' type="submit">Add</button>
       </form>
 

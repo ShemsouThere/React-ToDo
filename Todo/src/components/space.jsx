@@ -80,14 +80,7 @@ export const CreateSpace = () => {
             value={spacename}
             onChange={(e) => setSpacename(e.target.value)}
           />
-          <input
-            type='text'
-            id='spaceid'
-            placeholder='Space Id'
-            className='cool-input1'
-            value={spaceid}
-            onChange={(e) => setSpaceid(e.target.value)}
-          />
+
           <input
             type='text'
             id='userid'

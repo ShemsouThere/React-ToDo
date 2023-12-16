@@ -7,6 +7,7 @@ const initialState = {
   spaceId: null,
   userId: null,
   userObject: null,
+  completedtasks: 0,
 };
 
 // Define your reducer function
@@ -18,6 +19,8 @@ const reducer = (state = initialState, action) => {
       return { ...state, userId: action.payload };
       case 'SET_USER_MAIL':
         return { ...state, email: action.payload };
+        case 'SET_COMPLETED_TASKS':
+          return { ...state, completedtasks: action.payload };
     case 'SET_USER_OBJECT':
       return { ...state, userObject: action.payload };
     default:

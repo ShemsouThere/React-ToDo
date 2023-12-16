@@ -116,3 +116,9 @@
   top: calc(-50% - 18px);
   color: dodgerblue;
 }
+
+
+.signInDiv {
+  position: relative;
+  left: 70%;
+}

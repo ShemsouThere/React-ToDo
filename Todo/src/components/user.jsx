@@ -149,60 +149,21 @@ export const Loginuser = () => {
       });
   };
   
-  // eslint-disable-next-line no-unused-vars
-  const handleOLogin = () => {
-
-  
-
-  };
-  const handleupdateuserid = () => {
-    const userId = Cookies.get('userId');
-    const [userID, setUserID] = useState(userID);
-    setUserID(userID);
-    dispatch({ type: 'SET_USER_ID', payload: userID });
-  }
 
   return (
     
     <>
-      
-      <div id="signInDiv"></div>
+          <div className="signInDiv" id="signInDiv"></div>
       { Object.keys(user).length != 0 &&
        <button onClick={ (e) => handleSignOut(e)}>Sign out</button>
       }
 
+    
+      <div className='namepicture'>
       <img src={user.picture}></img>
-      <h2>👋HI {user.name}</h2>
-
-
-      {isVisible && (
-        <form className='create_user_form_container'>
-          <div className='close-button' onClick={handleClose}>
-          <CloseButton onClick={handleClose} />
-          </div>
-          <label htmlFor="username" className="cool-label">UserName - Password</label>
-          <input
-            type="text"
-            name="username"
-            className="cool-input"
-            placeholder='USERNAME'
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <label htmlFor="password" className="cool-label">Password</label>
-          <input
-            type="password"
-            name="password"
-            className="password-input"
-            placeholder='**********'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button className='login-button' onClick={handleLogin}>Login</button>
-        </form>
-        
-      )}
-    </>
+      <h2 size={30}>👋HI {user.name}</h2>
+      </div>
+      </>
   );
 
 };
