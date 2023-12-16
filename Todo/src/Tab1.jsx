@@ -86,11 +86,6 @@ const Tab = () => {
             <BiAddToQueue size={55} color='black' />
           </a>
         </li>
-        <li>
-          <a href='./settings.html'>
-            <DiAptana size={55} color='black' />
-          </a>
-        </li>
       </ul>
     </div>
   );

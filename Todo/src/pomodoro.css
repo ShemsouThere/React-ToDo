@@ -11,10 +11,6 @@
   width: 75%;
   text-align: center;
   color: white;
-  background-image: url('https://static.vecteezy.com/system/resources/previews/003/452/115/non_2x/wildlife-elk-in-forest-nature-landscape-illustration-free-vector.jpg');
-  background-size: cover; /* Assurez-vous que l'image couvre l'ensemble de l'arrière-plan */
-  background-position: center; /* Centre l'image sur l'arrière-plan */
-  background-repeat: no-repeat; /* Évite la répétition de l'image */
   margin-top: -150px;
   margin-left: 10px;
 }

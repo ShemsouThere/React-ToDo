@@ -1,7 +1,7 @@
 
 .box{
     border-radius: 10px;
-    height: 500px;
+    height: auto;
     width: 80px;
     text-align: center;
     /* From https://css.glass */
@@ -67,10 +67,10 @@ border: 1px solid rgba(0, 0, 0, 0.34);
 }
 .Box3{
   /* From https://css.glass */
-background: rgba(5, 5, 5, 0.4);
+  background: rgba(0, 0, 0, 0.16);
 border-radius: 16px;
 box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(5.5px);
+backdrop-filter: blur(7.5px);
 -webkit-backdrop-filter: blur(5.5px);
 border: 3px solid rgba(0, 0, 0, 0.34);
   border-radius: 10px;
